@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Battle Arena</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-circle circle1"></div>
+    <div class="bg-circle circle2"></div>
+    <div class="bg-circle circle3"></div>
+
+    <div class="container">
+
+      <div class="hero">
+
+    <h1>🎮 RPS Battle Arena</h1>
+
+    <p>
+        Enter the Arena • Defeat the AI • Become the Ultimate Champion
+    </p>
+
+    <div class="hero-badges">
+
+        <span>⚡ Fast Gameplay</span>
+
+        <span>🤖 AI Opponent</span>
+
+        <span>🏆 Live Score</span>
+
+    </div>
+
+</div>
+
+        <!-- Game Mode -->
+        <div class="mode-card">
+            <h3>🎯 Game Mode</h3>
+            <p>🤖 AI Battle Mode</p>
+        </div>
+
+    <div class="battle-preview">
+
+    <div class="fighter">
+        <div class="avatar">👤</div>
+        <h3>Player</h3>
+    </div>
+
+    <div class="versus">
+        ⚔️
+        <p>VS</p>
+    </div>
+
+    <div class="fighter">
+        <div class="avatar">🤖</div>
+        <h3>AI Bot</h3>
+    </div>
+
+</div>
+
+
+        <!-- Choice Buttons -->
+        <form action="{{ url_for('play') }}" method="POST">
+
+            <button class="choice-btn" type="submit" name="choice" value="rock">
+                🪨
+                <span>Rock</span>
+            </button>
+
+            <button class="choice-btn" type="submit" name="choice" value="paper">
+                📄
+                <span>Paper</span>
+            </button>
+
+            <button class="choice-btn" type="submit" name="choice" value="scissors">
+                ✂️
+                <span>Scissors</span>
+            </button>
+
+        </form>
+
+       <div class="stats-grid">
+
+    <div class="stat-card win">
+        <h2>{{ session.wins }}</h2>
+        <p>🏆 Wins</p>
+    </div>
+
+    <div class="stat-card loss">
+        <h2>{{ session.losses }}</h2>
+        <p>❌ Losses</p>
+    </div>
+
+    <div class="stat-card draw">
+        <h2>{{ session.draws }}</h2>
+        <p>🤝 Draws</p>
+    </div>
+
+    <div class="stat-card rate">
+        <h2>{{ win_rate }}%</h2>
+        <p>📈 Win Rate</p>
+    </div>
+
+</div>
+
+        <a href="{{ url_for('reset') }}">🔄 Reset Score</a>
+
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

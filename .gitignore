@@ -1,0 +1,21 @@
+# Virtual Environment
+venv/
+
+# VS Code Settings
+.vscode/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Environment Variables
+.env
+
+# Flask Instance Folder
+instance/
+
+# macOS Files
+.DS_Store
+
+# Windows Thumbnail Cache
+Thumbs.db

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>
+
+<div class="container">
+
+    <h1>⚔️ Battle Result ⚔️</h1>
+
+    <div class="battle">
+
+        <div class="player-card">
+            <h2>You</h2>
+
+            {% if user_choice == "rock" %}
+                <div class="emoji">🪨</div>
+            {% elif user_choice == "paper" %}
+                <div class="emoji">📄</div>
+            {% else %}
+                <div class="emoji">✂️</div>
+            {% endif %}
+
+        </div>
+
+        <div class="vs">
+            VS
+        </div>
+
+        <div class="player-card">
+
+            <h2>Computer</h2>
+
+            {% if computer_choice == "rock" %}
+                <div class="emoji">🪨</div>
+            {% elif computer_choice == "paper" %}
+                <div class="emoji">📄</div>
+            {% else %}
+                <div class="emoji">✂️</div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <h2>{{ winner }}</h2>
+
+    <div class="score">
+
+        <h3>🏆 Score Board</h3>
+
+        <p>🏅 Wins : {{ session.wins }}</p>
+        <p>❌ Losses : {{ session.losses }}</p>
+        <p>🤝 Draws : {{ session.draws }}</p>
+
+    </div>
+
+    <br>
+
+    <a href="{{ url_for('home') }}">🎮 Play Again</a>
+
+    <a href="{{ url_for('reset') }}">🔄 Reset</a>
+
+</div>
+
+</body>
+
+</html>
